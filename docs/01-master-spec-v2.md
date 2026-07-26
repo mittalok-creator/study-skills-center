@@ -117,7 +117,11 @@ Admission CTA → Contact & location → Footer
 
 ## 4. Brand & design system
 
-### 4.1 Colour tokens — provisional, **[CONFIRM]** against the physical brand
+### 4.1 Colour tokens — provisional, pending logo extraction
+
+> **The SSC and MADS logos are the source of truth.** These values are placeholders until
+> the logo files arrive; the real palette will be extracted from them and this section
+> rewritten, with the contrast audit re-run against the actual values.
 
 ```
 --ssc-navy-900   #0A1633   Deep Navy — primary dark surface
@@ -153,10 +157,15 @@ scope that re-points accent tokens — **not** a second design system.
 
 ### 4.3 Typography
 
-Two families, self-hosted, `font-display: swap`, subset Latin (+ Devanagari if Hindi ships).
+**Locked 2026-07-26.** Two families, self-hosted, `font-display: swap`, subset Latin
+(+ Devanagari if Hindi ships).
 
-- **Display:** Bebas Neue **[CONFIRM — alternative: Space Grotesk]** — headlines only
-- **Text:** Inter **[CONFIRM — alternative: Manrope]** — 400/500/600/700
+- **Display:** Bebas Neue — headlines only, never body copy
+- **Text:** Inter — 400/500/600/700
+
+Bebas Neue is a condensed all-caps display face: it must never be used below ~24px, never
+for running text, and always with generous letter-spacing at large sizes. Inter carries
+everything else.
 
 Fluid scale, `clamp()`, 320px → 1440px viewport range:
 

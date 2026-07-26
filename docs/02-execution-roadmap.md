@@ -51,9 +51,13 @@ while the deeper features are still being built. Nothing waits for everything.
 - Storybook-style `/dev/kitchen-sink` route rendering every component in every state
 - axe + Lighthouse CI wired to that route
 
+- Logo assets derived from the supplied SSC and MADS marks: full lockup, compact,
+  monogram/favicon, light + dark variants, clear-space and minimum-size rules
+
 **Exit:** kitchen-sink route is axe-clean, keyboard-complete, correct at 320/768/1024/1440,
 and correct in reduced-motion.
-**Depends on:** brand hex values, logo SVG, font decision → `03-open-decisions.md` §B.
+**Blocked on:** the SSC and MADS logo files — the palette is extracted from them.
+Typefaces are locked (Bebas Neue + Inter). M0.1 is not blocked and can start first.
 
 ### M0.3 — Content model & pipeline (3–4 days)
 - CMS provisioned **[CONFIRM]**; all schemas from spec §5 implemented

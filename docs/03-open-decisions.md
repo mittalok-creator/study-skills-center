@@ -1,5 +1,33 @@
 # Open Decisions — needed from you
 
+## Decisions taken (2026-07-26)
+
+| # | Decision | Outcome |
+|---|---|---|
+| **A1** | Release structure | **Approved as proposed.** Five releases; public launch at end of R1 (~wk 7); Student Portal + Admin Dashboard carved into R5 behind a separate approval gate with a build-vs-buy evaluation. |
+| **A2** | Content readiness | **Partial** — some material exists, some needs writing. Templates are built against real content only; gaps are tracked as per-page blockers. Expect some R1 slip if writing lags. |
+| **B2** | Logo | SSC and MADS logos **exist**. They are the source of truth: the design system is derived to match them, not the reverse. **Awaiting the files** — see §A-NEXT below. |
+| **B3** | Typefaces | **Bebas Neue (display) + Inter (text).** Two families only, self-hosted, subset. Locked. |
+
+## §A-NEXT — the one remaining blocker
+
+**Upload the SSC and MADS logo files.** Preferred: original vector (`.svg`, `.ai`, `.eps`,
+`.pdf`). If only raster exists, send the highest resolution you have — I will rebuild them
+as clean SVG at the sizes the site needs.
+
+Once I have them I will:
+1. Extract the true brand colours and replace the provisional palette in spec §4.1
+2. Re-run the contrast audit against the real values and flag any pairing that fails
+   (the provisional gold failed on white at ~2.4:1 — the real one may too)
+3. Derive the MADS accent from its logo rather than inventing one
+4. Produce responsive logo assets: full lockup, compact, monogram/favicon, light and dark
+   variants, correct clear-space and minimum sizes
+
+**Not blocked by this:** R0/M0.1 (scaffold, CI, hosting, monitoring) can start immediately.
+Only M0.2 (design system) needs the logos.
+
+---
+
 Ordered by urgency. **§A and §B block the start of R0.** Everything else has a stated
 default I will proceed with if you don't have a preference — I'm not going to stall the
 build on a question that has a sensible answer.
