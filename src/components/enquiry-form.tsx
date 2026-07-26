@@ -3,31 +3,35 @@
 import { useRef, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { site, academicPrograms, madsPrograms } from "@/content/site";
+import { supabase, type LeadInsert } from "@/lib/supabase";
 
 /**
  * Demo-booking enquiry form.
  *
- * This is a static export with no server of its own, so submissions go
- * directly from the browser to FormSubmit (https://formsubmit.co) — a
- * third-party relay that forwards the data to SSC's own inbox by email. It
- * needs no account, password or API key, which matters here: nobody building
- * this site can create an account on SSC's behalf, so any service requiring
- * one would have been a dead end.
+ * The durable record is a row in Supabase (`public.leads` — project
+ * study-skills-center, ap-south-1). That table has Row Level Security: the
+ * public key used here can INSERT and nothing else — no policy grants
+ * select/update/delete to `anon`, so a submitted lead can be read only from
+ * the Supabase dashboard or a service-role key, never through the public API.
+ * Column checks (`student_name_not_blank`, `phone_not_blank`,
+ * `consent_must_be_given`, …) enforce the same rules server-side that this
+ * component enforces client-side — something a plain static site couldn't do
+ * on its own, since it has no server. This is what actually makes "the lead
+ * is never lost" true, and it's why the Supabase insert is what determines
+ * success below, not FormSubmit.
  *
- * IMPORTANT — one-time activation, confirmed by an actual test submission
- * against the real endpoint while building this: FormSubmit always answers
- * HTTP 200, but the *first* submission it ever receives for
- * sscdelhi17@gmail.com is NOT delivered — it comes back
- * `{"success":"false","message":"This form needs Activation..."}` and instead
- * sends a one-time "Activate Form" email to that inbox. Until someone clicks
- * that link, every submission (including the first real visitor's) hits the
- * error/fallback state below, not success. See docs/07-lead-form.md — the
- * test above already triggered that activation email once.
+ * FormSubmit (https://formsubmit.co) is still fired alongside it, best-effort,
+ * as an immediate email nudge to sscdelhi17@gmail.com so staff don't have to
+ * poll a dashboard. It needs no account or API key on its own, which is why it
+ * was the first thing wired up — but it turned out to have a real gap: the
+ * *first* submission it ever receives for a new address isn't delivered at
+ * all, it just triggers a one-time "Activate Form" email instead (confirmed
+ * against the live endpoint — see docs/07-lead-form.md). That gap no longer
+ * matters for whether a lead is lost, because Supabase already has it
+ * regardless of whether FormSubmit's email arrives.
  *
- * Validation is client-side only (no server to double-check on). A honeypot
- * field (`_honey`) catches unsophisticated bots; nothing here stops a
- * determined spammer. See docs/07-lead-form.md for what's really enforced
- * server-side in the R1 build vs. what's a placeholder here.
+ * Honeypot field (`_honey`) catches unsophisticated bots before either call
+ * fires; nothing here stops a determined one.
  */
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -80,45 +84,55 @@ export function EnquiryForm() {
     }
 
     setStatus("submitting");
+
+    const studentName = String(data.get("student") ?? "").trim();
+    const parentName = String(data.get("parent") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
+    const classOrAge = String(data.get("class") ?? "").trim() || null;
+    const programme = String(data.get("programme") ?? "").trim() || null;
+    const message = String(data.get("message") ?? "").trim() || null;
+
+    // The database insert is the one that decides success/failure — see the
+    // file-level comment for why. FormSubmit runs alongside it but never
+    // blocks or overrides that outcome.
+    const notifyEmail = fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        _subject: "New demo booking enquiry — Study Skills Center site",
+        _template: "table",
+        _captcha: "false",
+        student: studentName,
+        parent: parentName,
+        phone,
+        classOrAge,
+        programme,
+        message,
+        consent: "Yes — parent/guardian consented to being contacted",
+      }),
+    }).catch(() => null); // best-effort notification; a failure here is never fatal
+
     try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          _subject: "New demo booking enquiry — Study Skills Center site",
-          _template: "table",
-          _captcha: "false",
-          student: data.get("student"),
-          parent: data.get("parent"),
-          phone: data.get("phone"),
-          classOrAge: data.get("class"),
-          programme: data.get("programme"),
-          message: data.get("message"),
-          consent: "Yes — parent/guardian consented to being contacted",
-        }),
-      });
+      const lead: LeadInsert = {
+        student_name: studentName,
+        parent_name: parentName,
+        phone,
+        class_or_age: classOrAge,
+        programme,
+        message,
+        consent: true,
+        source: "admissions_form",
+      };
+      const { error } = await supabase.from("leads").insert(lead);
 
-      // FormSubmit always answers HTTP 200, even when it did NOT deliver the
-      // message — most importantly the first-ever submission to a new address,
-      // which it holds pending a one-time activation click (confirmed by an
-      // actual test submission against the real endpoint while building this).
-      // Checking res.ok alone would show every visitor "success" regardless of
-      // whether SSC ever receives it, so the JSON body's own `success` field is
-      // the real signal.
-      const body: unknown = await res.json().catch(() => null);
-      const delivered =
-        res.ok &&
-        typeof body === "object" &&
-        body !== null &&
-        "success" in body &&
-        String((body as { success: unknown }).success) === "true";
-
-      if (!delivered) throw new Error("FormSubmit did not confirm delivery");
+      if (error) throw error;
 
       setStatus("success");
       router.push("/thank-you");
     } catch {
       setStatus("error");
+    } finally {
+      void notifyEmail;
     }
   }
 
