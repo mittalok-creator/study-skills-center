@@ -69,7 +69,9 @@ Unknowns are marked `TODO` rather than filled with plausible fiction.
 
 - **Photos are WhatsApp-compressed** (1600px ceiling). Fine as gallery tiles; not good
   enough for full-width heroes. Mitigated by keeping large images behind dark overlays.
-- **Forms don't submit.** Layout and validation structure only.
+- **Admissions form is now live** — real submission via FormSubmit to
+  sscdelhi17@gmail.com, no server needed. **Needs a one-time activation click**
+  before it delivers — see docs/07-lead-form.md §2. No other forms exist yet.
 - **No CMS yet.** Content lives in `src/content/site.ts`.
 - **Map is real now** — click-to-load Google Maps embed on Contact, no API key. See
   docs/06-seo-maps-favicon.md §4.
@@ -162,6 +164,7 @@ GitHub Actions**. Then re-run the workflow. The site appears at
 | [`docs/04-media-intake.md`](docs/04-media-intake.md) | How to send photos and video |
 | [`docs/05-photo-inventory.md`](docs/05-photo-inventory.md) | Audit of the 96-photo batch |
 | [`docs/06-seo-maps-favicon.md`](docs/06-seo-maps-favicon.md) | SEO metadata, structured data, sitemap/robots, real Maps embed, favicon |
+| [`docs/07-lead-form.md`](docs/07-lead-form.md) | How the Admissions form works, and the one-time activation step needed before it delivers |
 
 ---
 
