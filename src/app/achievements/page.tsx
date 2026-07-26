@@ -4,7 +4,11 @@ import { heroImage, galleryItems } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 import { Counter } from "@/components/motion/text";
 
-export const metadata = { title: "Results & Achievements" };
+export const metadata = {
+  title: "Results & Achievements",
+  description:
+    "Class X and Class XII board results published with the student's school named alongside, from Study Skills Center, Malviya Nagar.",
+};
 
 export default function AchievementsPage() {
   return (

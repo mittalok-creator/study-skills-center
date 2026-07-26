@@ -125,11 +125,14 @@ export function PageHero({
   title,
   lead,
   image,
+  logo,
 }: {
   eyebrow?: string;
   title: string;
   lead?: string;
   image?: string;
+  /** A division mark (MADS, Grades) shown on a white card above the eyebrow. */
+  logo?: { src: string; alt: string };
 }) {
   return (
     <header className="on-dark relative isolate overflow-hidden bg-navy-900 text-white grain">
@@ -148,6 +151,12 @@ export function PageHero({
         aria-hidden="true"
       />
       <Container className="relative py-20 md:py-28">
+        {logo && (
+          <div className="mb-6 inline-flex rounded-2xl bg-white p-3 shadow-[var(--shadow-3)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logo.src} alt={logo.alt} className="h-12 w-auto sm:h-14" />
+          </div>
+        )}
         {eyebrow && <Eyebrow tone="gold">{eyebrow}</Eyebrow>}
         <h1 className="display max-w-4xl" style={{ fontSize: "var(--fs-h1)" }}>
           {title}

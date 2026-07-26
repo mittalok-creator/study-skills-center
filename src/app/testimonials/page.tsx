@@ -3,7 +3,11 @@ import { testimonials } from "@/content/site";
 import { heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 
-export const metadata = { title: "Testimonials" };
+export const metadata = {
+  title: "Testimonials",
+  description:
+    "What parents and students say about Study Skills Center, Malviya Nagar.",
+};
 
 export default function TestimonialsPage() {
   return (

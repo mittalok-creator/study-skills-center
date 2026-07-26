@@ -3,7 +3,11 @@ import { site, divisions, whySSC, stats } from "@/content/site";
 import { heroImage, galleryItems } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 
-export const metadata = { title: "About" };
+export const metadata = {
+  title: "About",
+  description:
+    "How Study Skills Center works — its three divisions, teaching approach, and the Malviya Nagar centre itself.",
+};
 
 export default function AboutPage() {
   return (

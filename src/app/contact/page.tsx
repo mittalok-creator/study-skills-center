@@ -2,8 +2,13 @@ import { Container, Section, SectionHead, PageHero, Card, Button, TodoNote } fro
 import { site } from "@/content/site";
 import { heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
+import { MapEmbed } from "@/components/map-embed";
 
-export const metadata = { title: "Contact" };
+export const metadata = {
+  title: "Contact",
+  description:
+    "Call, WhatsApp or visit Study Skills Center at P-9, LGF, P-Block, Malviya Nagar, New Delhi 110017.",
+};
 
 export default function ContactPage() {
   return (
@@ -36,20 +41,7 @@ export default function ContactPage() {
 
           <div className="mt-12">
             <SectionHead eyebrow="Finding us" title="Location" />
-            <div className="flex aspect-[21/9] w-full items-center justify-center rounded-2xl border border-dashed border-grey-200 bg-grey-050 text-center">
-              <div className="p-8">
-                <p className="font-semibold text-navy-900">Map placeholder</p>
-                <p className="mt-2 max-w-md text-sm text-grey-500">
-                  In the live build this is a static map image that loads an interactive Google Map
-                  only when clicked — an always-on embed costs measurable performance and privacy.
-                </p>
-                <div className="mt-4">
-                  <Button href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapQuery)}`} variant="secondary">
-                    Open in Google Maps
-                  </Button>
-                </div>
-              </div>
-            </div>
+            <MapEmbed query={site.mapQuery} label={`${site.name} — ${site.address.full}`} />
             <TodoNote>Exact opening hours, nearest metro station and written walking directions from the post office.</TodoNote>
           </div>
         </Container>

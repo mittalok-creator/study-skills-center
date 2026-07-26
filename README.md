@@ -71,8 +71,12 @@ Unknowns are marked `TODO` rather than filled with plausible fiction.
   enough for full-width heroes. Mitigated by keeping large images behind dark overlays.
 - **Forms don't submit.** Layout and validation structure only.
 - **No CMS yet.** Content lives in `src/content/site.ts`.
-- **Map is a placeholder** with a click-out to Google Maps.
-- **Consent not yet verified** for any photograph of a student.
+- **Map is real now** — click-to-load Google Maps embed on Contact, no API key. See
+  docs/06-seo-maps-favicon.md §4.
+- **Consent not yet verified** for any photograph of a student — this now also applies to
+  structured data, which omits named results for the same reason.
+- **Site is blocked from indexing** (`robots.txt` disallows all, `noindex` on every page) —
+  intentional while this is a draft. Flip instructions in docs/06-seo-maps-favicon.md §3.
 
 ---
 
@@ -157,6 +161,7 @@ GitHub Actions**. Then re-run the workflow. The site appears at
 | [`docs/03-open-decisions.md`](docs/03-open-decisions.md) | Decisions needed, with defaults |
 | [`docs/04-media-intake.md`](docs/04-media-intake.md) | How to send photos and video |
 | [`docs/05-photo-inventory.md`](docs/05-photo-inventory.md) | Audit of the 96-photo batch |
+| [`docs/06-seo-maps-favicon.md`](docs/06-seo-maps-favicon.md) | SEO metadata, structured data, sitemap/robots, real Maps embed, favicon |
 
 ---
 

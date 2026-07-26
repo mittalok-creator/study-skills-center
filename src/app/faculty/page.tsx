@@ -2,7 +2,11 @@ import { Container, Section, SectionHead, PageHero, Card, TodoNote } from "@/com
 import { galleryItems, heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 
-export const metadata = { title: "Faculty" };
+export const metadata = {
+  title: "Faculty",
+  description:
+    "Teachers and instructors at Study Skills Center across academics, MADS creative programmes and Grades Career Institute.",
+};
 
 const placeholders = [
   { role: "Academics — Senior Secondary", subject: "Physics, Chemistry, Maths" },

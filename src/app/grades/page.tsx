@@ -1,10 +1,14 @@
 import { Container, Section, SectionHead, PageHero, Card, Button, TodoNote } from "@/components/ui";
-import { gradesPrograms, results, site } from "@/content/site";
+import { gradesPrograms, gradesRegistration, results, site } from "@/content/site";
 import { heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 import { Counter } from "@/components/motion/text";
 
-export const metadata = { title: "Grades Career Institute" };
+export const metadata = {
+  title: "Grades Career Institute",
+  description:
+    "Grades Career Institute — JEE Main, JEE Advanced, NEET, Olympiads and Class VII–X foundation coaching. A unit of Study Skills Center.",
+};
 
 export default function GradesPage() {
   return (
@@ -14,6 +18,7 @@ export default function GradesPage() {
         title="Grades Career Institute"
         lead="JEE, NEET, Olympiads and foundation coaching — for students building towards engineering and medical entrance."
         image={asset(heroImage("hero-grades"))}
+        logo={{ src: asset("/images/brand/grades-logo.jpg"), alt: "Grades Manager" }}
       />
 
       <Section>
@@ -28,6 +33,9 @@ export default function GradesPage() {
             ))}
           </ul>
           <TodoNote>Faculty for each stream, batch structure, test series details, fees and admission criteria.</TodoNote>
+          <p className="mt-6 text-xs text-grey-500">
+            {gradesRegistration.unitOf} · Udyam registered {gradesRegistration.udyam}
+          </p>
         </Container>
       </Section>
 

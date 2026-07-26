@@ -3,7 +3,11 @@ import { site, academicPrograms } from "@/content/site";
 import { heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 
-export const metadata = { title: "Fees" };
+export const metadata = {
+  title: "Fees",
+  description:
+    "How fees work at Study Skills Center, and what batch timings and modes are available for each programme.",
+};
 
 export default function FeesPage() {
   return (

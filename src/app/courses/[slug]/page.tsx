@@ -3,6 +3,8 @@ import { Container, Section, SectionHead, PageHero, Button, Card, Badge, TodoNot
 import { academicPrograms, site, faqs } from "@/content/site";
 import { heroImage, galleryItems } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
+import { JsonLd } from "@/components/json-ld";
+import { courseJsonLd } from "@/lib/structured-data";
 
 export function generateStaticParams() {
   return academicPrograms.map((p) => ({ slug: p.slug }));
@@ -11,7 +13,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const course = academicPrograms.find((p) => p.slug === slug);
-  return { title: course?.title ?? "Course" };
+  return {
+    title: course?.title ?? "Course",
+    description: course?.summary,
+  };
 }
 
 export default async function CoursePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -22,8 +27,11 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
   const related = academicPrograms.filter((p) => p.slug !== slug).slice(0, 3);
   const shots = galleryItems.filter((g) => g.category === "academics").slice(0, 3);
 
+  const courseData = courseJsonLd(slug);
+
   return (
     <>
+      {courseData && <JsonLd data={courseData} />}
       <PageHero eyebrow={course.stage} title={course.title} lead={course.summary} image={asset(heroImage("hero-academics"))} />
 
       <Section>

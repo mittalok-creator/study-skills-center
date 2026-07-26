@@ -3,7 +3,11 @@ import { events } from "@/content/site";
 import { posterImage, heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 
-export const metadata = { title: "Events" };
+export const metadata = {
+  title: "Events",
+  description:
+    "Annual Day, Summer Camp and the student Art Exhibition at Study Skills Center, Malviya Nagar.",
+};
 
 export default function EventsPage() {
   return (

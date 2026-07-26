@@ -2,7 +2,11 @@ import { Container, Section, SectionHead, PageHero, Card, Badge, TodoNote } from
 import { heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 
-export const metadata = { title: "Blog" };
+export const metadata = {
+  title: "Blog",
+  description:
+    "Articles on exam preparation, study habits and the creative programmes at Study Skills Center, Malviya Nagar.",
+};
 
 const ideas = [
   { tag: "Boards", title: "How to plan the last 90 days before Class X boards", why: "High search volume every January–March." },

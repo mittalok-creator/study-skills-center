@@ -2,12 +2,19 @@ import { Container, Section, PageHero } from "@/components/ui";
 import { faqs } from "@/content/site";
 import { heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
+import { JsonLd } from "@/components/json-ld";
+import { faqJsonLd } from "@/lib/structured-data";
 
-export const metadata = { title: "FAQ" };
+export const metadata = {
+  title: "FAQ",
+  description:
+    "Answers to common questions about classes, batches, demo bookings and fees at Study Skills Center, Malviya Nagar.",
+};
 
 export default function FaqPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd()} />
       <PageHero eyebrow="Questions" title="Frequently asked" lead="If your question isn't here, call us — we would rather answer it properly." image={asset(heroImage("hero-about"))} />
       <Section>
         <Container className="max-w-3xl">

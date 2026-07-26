@@ -3,7 +3,11 @@ import { site, academicPrograms, madsPrograms } from "@/content/site";
 import { heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 
-export const metadata = { title: "Admissions" };
+export const metadata = {
+  title: "Admissions",
+  description:
+    "How admission works at Study Skills Center — book a free demo class, pick a batch, and enrol. Online and offline batches for Classes I–XII.",
+};
 
 const steps = [
   { n: "01", t: "Tell us about the student", d: "Class, subjects or the creative programme you're interested in, and what you're hoping changes." },

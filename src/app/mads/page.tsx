@@ -3,7 +3,11 @@ import { madsPrograms, site } from "@/content/site";
 import { heroImage, galleryItems } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 
-export const metadata = { title: "MADS — Music & Dance Studio" };
+export const metadata = {
+  title: "MADS — Music & Dance Studio",
+  description:
+    "MADS — Music & Dance Studio. Western dance, Kathak, Bharatnatyam, Zumba, guitar, keyboard, vocal, Taekwon-Do, drawing, painting and chess.",
+};
 
 const groups = ["Dance", "Music", "Martial Arts", "Art", "Mind Sports"] as const;
 
@@ -15,6 +19,7 @@ export default function MadsPage() {
         title="MADS — Music & Dance Studio"
         lead="Dance, music, martial arts and fine art. Ages 6–14 and 15-and-above, including adults, in separate batches."
         image={asset(heroImage("hero-mads"))}
+        logo={{ src: asset("/images/brand/mads-logo.jpg"), alt: "MADS — Music and Dance Studio" }}
       />
 
       <Section>

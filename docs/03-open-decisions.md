@@ -9,22 +9,29 @@
 | **B2** | Logo | SSC and MADS logos **exist**. They are the source of truth: the design system is derived to match them, not the reverse. **Awaiting the files** — see §A-NEXT below. |
 | **B3** | Typefaces | **Bebas Neue (display) + Inter (text).** Two families only, self-hosted, subset. Locked. |
 
-## §A-NEXT — the one remaining blocker
+## §A-NEXT — logos received (2026-07-26)
 
-**Upload the SSC and MADS logo files.** Preferred: original vector (`.svg`, `.ai`, `.eps`,
-`.pdf`). If only raster exists, send the highest resolution you have — I will rebuild them
-as clean SVG at the sizes the site needs.
+**MADS and Grades Career Institute logos received and wired in.** Both are clean raster
+marks (not the phone-screenshot crop used earlier) and now appear on the MADS page hero,
+the Grades page hero, and the home page's MADS section:
+`public/images/brand/mads-logo.jpg`, `public/images/brand/grades-logo.jpg`.
 
-Once I have them I will:
+**SSC's own logo is still only the phone-screenshot crop** taken from the photo batch
+(`public/images/brand/ssc-logo.jpg`) — visible screenshot chrome was cropped out, but it is
+not the original file. The favicon set, header mark, and OG share image are all built from
+this crop. **Still requested:** the original SSC logo file, vector if you have it, so these
+can be regenerated at full quality.
+
+Once received:
 1. Extract the true brand colours and replace the provisional palette in spec §4.1
 2. Re-run the contrast audit against the real values and flag any pairing that fails
    (the provisional gold failed on white at ~2.4:1 — the real one may too)
-3. Derive the MADS accent from its logo rather than inventing one
+3. Regenerate the favicon set, apple-touch-icon and OG image from the clean source
 4. Produce responsive logo assets: full lockup, compact, monogram/favicon, light and dark
    variants, correct clear-space and minimum sizes
 
 **Not blocked by this:** R0/M0.1 (scaffold, CI, hosting, monitoring) can start immediately.
-Only M0.2 (design system) needs the logos.
+Only M0.2 (design system) needs the SSC logo file.
 
 ---
 

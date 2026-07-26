@@ -4,7 +4,11 @@ import { academicPrograms, gradesPrograms, madsPrograms } from "@/content/site";
 import { heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
 
-export const metadata = { title: "Courses" };
+export const metadata = {
+  title: "Courses",
+  description:
+    "Academic programmes for Classes I to XII, English speaking, languages and mental maths at Study Skills Center, Malviya Nagar.",
+};
 
 export default function CoursesPage() {
   return (

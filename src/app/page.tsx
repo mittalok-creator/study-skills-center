@@ -210,6 +210,14 @@ export default function HomePage() {
         <Container className="relative">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
+              <div className="mb-5 inline-flex rounded-2xl bg-white p-2.5 shadow-[var(--shadow-3)]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={asset("/images/brand/mads-logo.jpg")}
+                  alt="MADS — Music and Dance Studio"
+                  className="h-10 w-auto"
+                />
+              </div>
               <Eyebrow tone="gold">MADS — Music &amp; Dance Studio</Eyebrow>
               <CharHeading
                 as="h2"

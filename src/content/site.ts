@@ -138,6 +138,14 @@ export const madsPrograms = [
   { slug: "chess", title: "Chess", group: "Mind Sports", image: "chess-01" },
 ] as const;
 
+/** Source: Grades Career Institute / Grades Manager poster footer strip */
+export const gradesRegistration = {
+  unitOf: "A Unit of Study Skills Center, New Delhi",
+  udyam: "UDYAM-DL-08-0026080",
+  code: "SSC-GM-0021",
+  website: "www.gradesmanager.com",
+} as const;
+
 /** Source: Grades Career Institute / Grades Manager posters */
 export const gradesPrograms = [
   { title: "JEE Advanced", detail: "IIT / KVPY" },
