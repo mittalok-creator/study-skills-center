@@ -13,7 +13,8 @@ export function DraftBanner() {
         <span className="rounded-full bg-navy-900 px-2.5 py-0.5 text-[10px] uppercase tracking-wider text-gold-300">
           Draft
         </span>
-        <span>Rough first draft for review — content, photos and fees are not final.</span>
+        <span className="hidden sm:inline">Rough first draft for review — content, photos and fees are not final.</span>
+        <span className="sm:hidden">Draft for review — not final.</span>
       </div>
     </div>
   );

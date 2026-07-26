@@ -23,7 +23,7 @@ export default function FacultyPage() {
       <Section>
         <Container>
           <SectionHead eyebrow="Draft structure" title="How this page will work" lead="Each teacher gets a portrait, qualifications, years of experience, the subjects they teach, and their own page for search." />
-          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
             {placeholders.map((p, i) => {
               const shot = shots[i % shots.length];
               return (

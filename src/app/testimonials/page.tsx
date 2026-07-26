@@ -11,7 +11,7 @@ export default function TestimonialsPage() {
       <PageHero eyebrow="In their words" title="Testimonials" lead="What parents and students say about the centre." image={asset(heroImage("hero-about"))} />
       <Section>
         <Container>
-          <ul className="grid gap-6 md:grid-cols-3">
+          <ul className="grid gap-6 md:grid-cols-3" data-stagger>
             {testimonials.map((t, i) => (
               <Card as="li" key={i}>
                 <span className="display text-5xl leading-none text-grey-200" aria-hidden="true">&ldquo;</span>

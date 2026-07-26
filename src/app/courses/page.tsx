@@ -19,7 +19,7 @@ export default function CoursesPage() {
       <Section>
         <Container>
           <SectionHead eyebrow="Tuition Centre" title="Academic programmes" lead="Small batches, online and offline, with printed study material." />
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
             {academicPrograms.map((p) => (
               <Card as="li" key={p.slug} className="flex flex-col">
                 <Badge tone="grey">{p.stage}</Badge>
@@ -42,7 +42,7 @@ export default function CoursesPage() {
       <Section className="bg-grey-050">
         <Container>
           <SectionHead eyebrow="Grades Career Institute" title="Competitive exams" lead="For students building towards engineering, medical and olympiad entrance." />
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
             {gradesPrograms.map((g) => (
               <Card as="li" key={g.title}>
                 <h3 className="font-semibold text-navy-900">{g.title}</h3>
@@ -57,7 +57,7 @@ export default function CoursesPage() {
       <Section>
         <Container>
           <SectionHead eyebrow="MADS" title="Creative programmes" lead="Ages 6–14 and 15-and-above, in separate batches." />
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
             {madsPrograms.map((m) => (
               <Card as="li" key={m.slug}>
                 <Badge tone="gold">{m.group}</Badge>

@@ -72,43 +72,49 @@ Unknowns are marked `TODO` rather than filled with plausible fiction.
 
 ---
 
-## Motion & 3D
+## Motion
 
-**Interactive 3D hero** — React Three Fiber. A floating cluster of procedurally built
-objects: a stack of books, mortarboard with tassel, wireframe glass globe, trophy, quaver,
-piano keys, and three abstract glass forms, over a drifting particle field. Interactive
-lighting tracks the pointer, the whole group parallaxes to the mouse, and fog stands in for
-depth of field. No model or HDR files — everything is generated in-scene, so it works
-offline and under a strict CSP.
+**Hero — floating photo collage.** Real photographs of the centre drift on a CSS animation
+and parallax to the pointer on desktop. For a school, evidence that classes actually look
+like this beats abstract shapes; an earlier WebGL version of procedural books, globes and
+trophies was cut for looking cheap, which also removed ~230 kB of Three.js from the bundle.
 
-**Capability-gated.** The 3D chunk only loads on desktop, with a fine pointer, ≥4 cores,
-≥4 GB memory, WebGL2, no save-data and no reduced-motion preference. Everyone else gets the
-poster image, which is the LCP element on those devices. Rendering stops entirely once the
-hero scrolls out of view.
+**Character-by-character headings.** Every display heading assembles letter by letter with a
+slight rotation, so it reads as writing rather than a generic fade. The full text stays
+accessible via `aria-label`, with the per-character spans hidden from assistive tech —
+otherwise a screen reader announces one letter at a time.
 
-**GSAP + Lenis motion layer** (`src/components/motion/`):
-hero intro timeline · split-line headline reveals · section and staggered reveals ·
-animated counters · scrub parallax · pinned horizontal scroll for the Student Journey ·
-magnetic buttons · custom cursor · page-transition wipe · glass hover · drifting gradients
-and aurora blooms · animated scroll indicator · smooth scrolling.
+**Every number counts up.** Hero statistics and all twelve board results animate from zero,
+with decimal support (93.6%, 92.4%) and prefix/suffix handling (96/100, 11+). Values are
+rendered server-side at their final figure, so they are correct without JS.
 
-**The rule everything follows:** no CSS hides content. Elements are visible in the
-stylesheet; GSAP sets the "from" state at runtime only when it will also animate it back.
-Hero content plays on a load timeline, never a scroll trigger — anything in the first
-viewport that waits for a ScrollTrigger can sit at its "from" state forever if it falls
-below the trigger point. An automated audit walks all 16 routes, scrolls each to the
-bottom, and fails if any animated element is left below 0.9 opacity.
+**Everything else** (`src/components/motion/`): hero intro timeline, section and staggered
+reveals, scrub parallax, pinned horizontal Student Journey on desktop with a snap carousel
+on touch, magnetic buttons, custom cursor, page-transition wipe, glass hover, drifting
+gradient and aurora backgrounds, animated scroll indicator, smooth scrolling.
 
-`prefers-reduced-motion: reduce` disables the entire layer — no 3D, no Lenis, no reveals —
-and is verified in the same audit.
+**Mobile gets the full animation set** — most visitors are on a phone, so only genuinely
+pointer-dependent effects (magnetic buttons, cursor parallax) are desktop-only.
+
+### Two rules everything follows
+
+1. **No CSS hides content.** Elements are visible in the stylesheet; GSAP sets the "from"
+   state at runtime only where it will also animate it back. No-JS, print and
+   reduced-motion always show the finished page.
+2. **First-viewport content animates on load, never on scroll.** An element sitting below
+   its own ScrollTrigger start point at load would otherwise stay at opacity 0 forever.
+
+`npm run audit:motion` walks all 16 routes, scrolls each to the bottom, and fails if any
+animated element is left under 0.9 opacity. `prefers-reduced-motion: reduce` disables the
+whole layer and is verified the same way.
 
 ## Stack
 
 Next.js 15 (App Router, static export) · React 19 · TypeScript strict · Tailwind CSS v4 ·
-GSAP + ScrollTrigger · Lenis · Three.js + React Three Fiber + Drei · Bebas Neue + Inter.
+GSAP + ScrollTrigger · Lenis · Bebas Neue + Inter.
 
-**Home: ~137 kB First Load JS** against a 180 kB budget. The ~230 kB gzipped 3D bundle is a
-separate deferred chunk that most visitors never download.
+**Home: ~136 kB First Load JS** against a 180 kB budget, with no deferred 3D bundle behind
+it — the same payload on mobile as on desktop.
 
 ```
 src/

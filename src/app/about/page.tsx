@@ -56,7 +56,7 @@ export default function AboutPage() {
       <Section className="bg-grey-050">
         <Container>
           <SectionHead eyebrow="Structure" title="Three divisions, one address" />
-          <ul className="grid gap-6 md:grid-cols-3">
+          <ul className="grid gap-6 md:grid-cols-3" data-stagger>
             {divisions.map((d) => (
               <Card as="li" key={d.slug}>
                 <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">{d.label}</p>
@@ -71,7 +71,7 @@ export default function AboutPage() {
       <Section>
         <Container>
           <SectionHead eyebrow="How we work" title="What we hold ourselves to" />
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-stagger>
             {whySSC.map((w) => (
               <li key={w.title} className="border-t-2 border-blue-600 pt-5">
                 <h3 className="font-semibold text-navy-900">{w.title}</h3>

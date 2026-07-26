@@ -26,7 +26,7 @@ export default function MadsPage() {
             return (
               <div key={group} className="mb-12">
                 <h3 className="display mb-5 text-2xl text-navy-900">{group}</h3>
-                <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
                   {items.map((m) => {
                     const shot = galleryItems.find((g) => g.src.includes(m.image));
                     return (

@@ -20,7 +20,7 @@ export default function BlogPage() {
       <Section>
         <Container>
           <SectionHead eyebrow="Proposed" title="Opening editorial calendar" lead="Draft article ideas, chosen for local and parent search intent rather than general interest." />
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-stagger>
             {ideas.map((a) => (
               <Card as="li" key={a.title}>
                 <Badge tone="blue">{a.tag}</Badge>

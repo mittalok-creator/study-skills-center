@@ -54,6 +54,13 @@ h1, h2, h3, h4 {
 
 p { text-wrap: pretty; }
 
+[data-chars] {
+  perspective: 700px;
+}
+[data-char] {
+  transform-origin: 50% 100%;
+}
+
 .display {
   font-family: var(--font-display);
   font-weight: 400;
@@ -110,6 +117,14 @@ p { text-wrap: pretty; }
   @keyframes floaty {
     from { transform: translateY(0) }
     to { transform: translateY(-14px) }
+  }
+
+  .hero-float {
+    animation: card-float 8s var(--ease-out-quart) infinite alternate;
+  }
+  @keyframes card-float {
+    from { transform: translateY(0) }
+    to   { transform: translateY(-18px) }
   }
 
   .scroll-dot {

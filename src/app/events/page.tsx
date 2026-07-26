@@ -11,7 +11,7 @@ export default function EventsPage() {
       <PageHero eyebrow="What's on" title="Events & showcases" lead="Annual days, summer camp closings and exhibitions of student work." image={asset(heroImage("hero-gallery"))} />
       <Section>
         <Container>
-          <ul className="grid gap-8 md:grid-cols-3">
+          <ul className="grid gap-8 md:grid-cols-3" data-stagger>
             {events.map((e) => (
               <Card as="li" key={e.slug} className="overflow-hidden p-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

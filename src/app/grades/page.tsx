@@ -2,6 +2,7 @@ import { Container, Section, SectionHead, PageHero, Card, Button, TodoNote } fro
 import { gradesPrograms, results, site } from "@/content/site";
 import { heroImage } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
+import { Counter } from "@/components/motion/text";
 
 export const metadata = { title: "Grades Career Institute" };
 
@@ -18,7 +19,7 @@ export default function GradesPage() {
       <Section>
         <Container>
           <SectionHead eyebrow="What we prepare for" title="Programmes" />
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
             {gradesPrograms.map((g) => (
               <Card as="li" key={g.title}>
                 <h3 className="display text-xl text-navy-900">{g.title}</h3>
@@ -33,10 +34,12 @@ export default function GradesPage() {
       <Section className="bg-blue-050">
         <Container>
           <SectionHead eyebrow="Results" title={results.class12.heading} />
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
             {results.class12.students.map((s) => (
               <li key={s.name} className="rounded-xl bg-white px-5 py-4 shadow-[var(--shadow-1)]">
-                <span className="display block text-3xl text-blue-600">{s.score}</span>
+                <span className="display block text-3xl text-blue-600">
+                  <Counter value={s.score} decimals={s.decimals} suffix={s.suffix} />
+                </span>
                 <span className="mt-1 block font-semibold text-navy-900">{s.name}</span>
                 <span className="block text-xs text-grey-500">{s.school}</span>
               </li>

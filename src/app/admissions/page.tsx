@@ -20,7 +20,7 @@ export default function AdmissionsPage() {
       <Section>
         <Container>
           <SectionHead eyebrow="How it works" title="Four steps" />
-          <ol className="grid gap-6 md:grid-cols-4">
+          <ol className="grid gap-6 md:grid-cols-4" data-stagger>
             {steps.map((s) => (
               <li key={s.n} className="border-t-2 border-blue-600 pt-5">
                 <span className="display text-3xl text-grey-200">{s.n}</span>

@@ -2,6 +2,7 @@ import { Container, Section, SectionHead, PageHero } from "@/components/ui";
 import { results } from "@/content/site";
 import { heroImage, galleryItems } from "@/lib/gallery";
 import { asset } from "@/lib/asset";
+import { Counter } from "@/components/motion/text";
 
 export const metadata = { title: "Results & Achievements" };
 
@@ -19,10 +20,12 @@ export default function AchievementsPage() {
         <Section key={group.heading} className={gi % 2 ? "bg-grey-050" : ""}>
           <Container>
             <SectionHead eyebrow={group.subject} title={group.heading} />
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
               {group.students.map((s) => (
                 <li key={s.name} className="rounded-2xl border border-grey-200 bg-white p-6 shadow-[var(--shadow-1)]">
-                  <span className="display block text-4xl text-blue-600">{s.score}</span>
+                  <span className="display block text-4xl text-blue-600">
+                    <Counter value={s.score} decimals={s.decimals} suffix={s.suffix} />
+                  </span>
                   <span className="mt-2 block font-semibold text-navy-900">{s.name}</span>
                   <span className="block text-sm text-grey-500">{s.school}</span>
                 </li>

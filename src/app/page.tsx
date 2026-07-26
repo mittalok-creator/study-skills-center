@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Container, Section, SectionHead, Button, Card, Badge, Eyebrow } from "@/components/ui";
-import { Hero3D } from "@/components/hero/hero-3d";
-import { SplitHeading, Counter, MagneticButton, ScrollIndicator } from "@/components/motion/pieces";
+import { HeroCollage } from "@/components/hero-collage";
+import { MagneticButton, ScrollIndicator } from "@/components/motion/pieces";
+import { CharHeading, Counter } from "@/components/motion/text";
 import {
   site,
   divisions,
@@ -25,18 +26,9 @@ export default function HomePage() {
       {/* ============================= HERO ============================= */}
       <section
         id="hero"
+        data-hero
         className="on-dark relative isolate flex min-h-[100svh] items-center overflow-hidden bg-navy-900 text-white"
       >
-        {/* Poster — the LCP element, and the whole hero on mobile/reduced-motion */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={asset(heroImage("hero-home"))}
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-30"
-        />
-
         {/* Animated background: drifting gradient + aurora blooms */}
         <div
           className="gradient-drift absolute inset-0 -z-20"
@@ -55,30 +47,32 @@ export default function HomePage() {
         />
         <div className="grain absolute inset-0 -z-10" aria-hidden="true" />
 
-        {/* Interactive 3D — desktop, high-power, motion-allowed only */}
-        <Hero3D />
+        {/* Floating photographs of the centre */}
+        <HeroCollage />
 
-        {/* Readability scrim over the 3D layer */}
+        {/* Readability scrim. Vertical on mobile (text over cards), diagonal on
+            desktop (text left, cards right). */}
         <div
-          className="absolute inset-0 z-[2]"
+          className="absolute inset-0 z-[2] lg:hidden"
           aria-hidden="true"
-          style={{ background: "linear-gradient(100deg,rgba(10,22,51,.96) 0%,rgba(10,22,51,.9) 30%,rgba(10,22,51,.35) 56%,transparent 76%)" }}
+          style={{ background: "linear-gradient(185deg,rgba(10,22,51,.72) 0%,rgba(10,22,51,.86) 30%,rgba(10,22,51,.7) 66%,rgba(10,22,51,.9) 100%)" }}
+        />
+        <div
+          className="absolute inset-0 z-[2] hidden lg:block"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(100deg,rgba(10,22,51,.96) 0%,rgba(10,22,51,.88) 32%,rgba(10,22,51,.3) 58%,transparent 78%)" }}
         />
 
         <Container className="relative z-10 py-16">
           <div className="max-w-2xl">
             <Eyebrow tone="gold">Malviya Nagar, New Delhi</Eyebrow>
 
-            <SplitHeading
+            <CharHeading
               className="display"
               style={{ fontSize: "var(--fs-display)" }}
-              lines={[
-                "Learning",
-                "through",
-                <span key="x" className="text-gold-300">
-                  experience
-                </span>,
-              ]}
+              text={["Learning", "through", "experience"]}
+              accentFrom={2}
+              delay={0.25}
             />
 
             <p className="mt-5 max-w-xl text-lg text-white/80" data-hero-item>
@@ -129,7 +123,7 @@ export default function HomePage() {
                 <dt className="sr-only">{s.label}</dt>
                 <dd>
                   <span className="display block text-5xl text-blue-600 sm:text-6xl">
-                    <Counter value={s.value} suffix={s.suffix} />
+                    <Counter value={s.value} decimals={s.decimals} suffix={s.suffix} />
                   </span>
                   <span className="mt-2 block text-xs uppercase tracking-[0.14em] text-grey-500">
                     {s.label}
@@ -222,11 +216,11 @@ export default function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <Eyebrow tone="gold">MADS — Music &amp; Dance Studio</Eyebrow>
-              <SplitHeading
+              <CharHeading
                 as="h2"
                 className="display"
                 style={{ fontSize: "var(--fs-h2)" }}
-                lines={["The creative half", "of the centre"]}
+                text={["The creative half", "of the centre"]}
               />
               <p className="mt-4 text-white/75" data-reveal>
                 Dance, music, martial arts and fine art — taught in two separate batches, ages
@@ -314,7 +308,9 @@ export default function HomePage() {
                         <span className="block font-semibold text-navy-900">{s.name}</span>
                         <span className="block text-xs text-grey-500">{s.school}</span>
                       </span>
-                      <span className="display shrink-0 text-2xl text-blue-600">{s.score}</span>
+                      <span className="display shrink-0 text-2xl text-blue-600">
+                        <Counter value={s.score} decimals={s.decimals} suffix={s.suffix} />
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -334,11 +330,11 @@ export default function HomePage() {
         <div className="flex min-h-[100svh] flex-col justify-center py-20">
           <Container>
             <Eyebrow tone="gold">The student journey</Eyebrow>
-            <SplitHeading
+            <CharHeading
               as="h2"
               className="display max-w-3xl"
               style={{ fontSize: "var(--fs-h2)" }}
-              lines={["From a first phone call", "to a result worth framing"]}
+              text={["From a first phone call", "to a result worth framing"]}
             />
           </Container>
 
@@ -527,11 +523,11 @@ export default function HomePage() {
           style={{ background: "radial-gradient(circle,rgba(201,162,39,.32),transparent 70%)" }}
         />
         <Container className="relative text-center">
-          <SplitHeading
+          <CharHeading
             as="h2"
             className="display mx-auto max-w-3xl"
             style={{ fontSize: "var(--fs-h2)" }}
-            lines={["Sit in on a class", "before you decide"]}
+            text={["Sit in on a class", "before you decide"]}
           />
           <p className="mx-auto mt-4 max-w-xl text-white/75" data-reveal>
             The demo class is free and there is no obligation. Call, message on WhatsApp, or send

@@ -6,66 +6,6 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 
 /* ------------------------------------------------------------------ *
- * Split headline
- * ------------------------------------------------------------------ */
-
-/**
- * Renders each line inside a clipping mask so the line can slide up from
- * below. Lines are passed in explicitly rather than measured, which keeps it
- * deterministic across fonts and viewports — and the text is real text, so
- * screen readers and search engines see a normal heading.
- */
-export function SplitHeading({
-  lines,
-  className = "",
-  style,
-  as: Tag = "h1",
-}: {
-  lines: React.ReactNode[];
-  className?: string;
-  style?: React.CSSProperties;
-  as?: "h1" | "h2";
-}) {
-  return (
-    <Tag className={className} style={style} data-split>
-      {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.06em]">
-          <span data-split-inner className="block will-change-transform">
-            {line}
-          </span>
-        </span>
-      ))}
-    </Tag>
-  );
-}
-
-/* ------------------------------------------------------------------ *
- * Counter
- * ------------------------------------------------------------------ */
-
-export function Counter({
-  value,
-  suffix = "",
-  prefix = "",
-  className = "",
-}: {
-  value: number;
-  suffix?: string;
-  prefix?: string;
-  className?: string;
-}) {
-  return (
-    <span className={className}>
-      {prefix}
-      <span data-count={value} data-count-suffix={suffix}>
-        {value.toLocaleString("en-IN")}
-        {suffix}
-      </span>
-    </span>
-  );
-}
-
-/* ------------------------------------------------------------------ *
  * Magnetic button
  * ------------------------------------------------------------------ */
 

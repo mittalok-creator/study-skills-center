@@ -87,7 +87,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
       <Section className="bg-grey-050">
         <Container>
           <SectionHead eyebrow="Also at SSC" title="Related programmes" />
-          <ul className="grid gap-5 md:grid-cols-3">
+          <ul className="grid gap-5 md:grid-cols-3" data-stagger>
             {related.map((p) => (
               <Card as="li" key={p.slug}>
                 <Badge tone="grey">{p.stage}</Badge>

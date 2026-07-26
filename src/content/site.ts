@@ -159,24 +159,24 @@ export const results = {
     heading: "Class XII Boards 2025–26",
     subject: "Outstanding performance",
     students: [
-      { name: "Pranay Singh", score: "96/100", school: "APJ School, Sheikh Sarai" },
-      { name: "Dakshayani Babu Rao", score: "95/100", school: "Asan Memorial Senior Secondary School, Chennai" },
-      { name: "Ariya Sachdeva", score: "93/100", school: "Naga Schools, Gurgaon" },
-      { name: "Siddhi Jaiswal", score: "92/100", school: "TODO — confirm school" },
-      { name: "Surkhab Wasil", score: "91/100", school: "TODO — confirm school" },
-      { name: "Soumya Dhal", score: "91/100", school: "TODO — confirm school" },
+      { name: "Pranay Singh", score: 96, decimals: 0, suffix: "/100", school: "APJ School, Sheikh Sarai" },
+      { name: "Dakshayani Babu Rao", score: 95, decimals: 0, suffix: "/100", school: "Asan Memorial Senior Secondary School, Chennai" },
+      { name: "Ariya Sachdeva", score: 93, decimals: 0, suffix: "/100", school: "Naga Schools, Gurgaon" },
+      { name: "Siddhi Jaiswal", score: 92, decimals: 0, suffix: "/100", school: "TODO — confirm school" },
+      { name: "Surkhab Wasil", score: 91, decimals: 0, suffix: "/100", school: "TODO — confirm school" },
+      { name: "Soumya Dhal", score: 91, decimals: 0, suffix: "/100", school: "TODO — confirm school" },
     ],
   },
   class10: {
     heading: "Class X Achievers",
     subject: "Overall percentage",
     students: [
-      { name: "Meeshika Ramteke", score: "99%", school: "Amity International, Mayur Vihar" },
-      { name: "Niyati Jhamb", score: "95%", school: "Manav Rachna International School" },
-      { name: "Satyam Dey", score: "93.6%", school: "Gyan Bharti School" },
-      { name: "Ira Goel", score: "93%", school: "Delhi Public School" },
-      { name: "Manvika Garg", score: "92.4%", school: "Laxman Public School" },
-      { name: "Naman Shandilya", score: "90%", school: "The Indian School" },
+      { name: "Meeshika Ramteke", score: 99, decimals: 0, suffix: "%", school: "Amity International, Mayur Vihar" },
+      { name: "Niyati Jhamb", score: 95, decimals: 0, suffix: "%", school: "Manav Rachna International School" },
+      { name: "Satyam Dey", score: 93.6, decimals: 1, suffix: "%", school: "Gyan Bharti School" },
+      { name: "Ira Goel", score: 93, decimals: 0, suffix: "%", school: "Delhi Public School" },
+      { name: "Manvika Garg", score: 92.4, decimals: 1, suffix: "%", school: "Laxman Public School" },
+      { name: "Naman Shandilya", score: 90, decimals: 0, suffix: "%", school: "The Indian School" },
     ],
   },
 } as const;
@@ -326,10 +326,10 @@ export const navigation = [
 
 /** Numeric stats for the animated counters on the home page. */
 export const countStats = [
-  { value: 12, suffix: "", label: "Classes taught (I–XII)" },
-  { value: 11, suffix: "", label: "Creative programmes" },
-  { value: 3, suffix: "", label: "Divisions under one roof" },
-  { value: 6, suffix: "th", label: "Annual Day held" },
+  { value: 12, decimals: 0, suffix: "", label: "Classes taught, I to XII" },
+  { value: 11, decimals: 0, suffix: "+", label: "Creative programmes" },
+  { value: 3, decimals: 0, suffix: "", label: "Divisions under one roof" },
+  { value: 6, decimals: 0, suffix: "", label: "Annual Days held" },
 ] as const;
 
 /** The student journey — horizontal scroll section on the home page. */

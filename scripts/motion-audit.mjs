@@ -27,7 +27,7 @@ for (const route of routes) {
 
   const hidden = await p.evaluate(() => {
     const out = [];
-    for (const el of document.querySelectorAll('[data-reveal],[data-stagger]>*,[data-split-inner],[data-hero-item]')) {
+    for (const el of document.querySelectorAll('[data-reveal],[data-stagger]>*,[data-char],[data-hero-item],.hero-card')) {
       const cs = getComputedStyle(el);
       if (parseFloat(cs.opacity) < 0.9) {
         out.push((el.tagName + '.' + (el.className || '').toString().slice(0, 40)).slice(0, 70));
