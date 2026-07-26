@@ -69,12 +69,13 @@ Unknowns are marked `TODO` rather than filled with plausible fiction.
 
 - **Photos are WhatsApp-compressed** (1600px ceiling). Fine as gallery tiles; not good
   enough for full-width heroes. Mitigated by keeping large images behind dark overlays.
-- **Admissions form: in progress, currently blocked.** Wired to a real Supabase
-  project (`leads` table, RLS, check constraints) with FormSubmit as a
-  secondary email nudge — but the Supabase insert is being rejected by its own
-  RLS policy for a reason not yet root-caused. See docs/07-lead-form.md §2 for
-  full diagnostic state. Until fixed, every submission hits the error/fallback
-  UI (call/WhatsApp prompt), not success — safe, but not delivering leads yet.
+- **Admissions form: wired to a real Supabase project** (`leads` table, RLS,
+  server-side check constraints) with FormSubmit as a secondary email nudge.
+  A real RLS bug was found and fixed during testing — root cause and fix in
+  docs/07-lead-form.md §2. Verified against the live API directly; a full
+  browser round-trip could not be verified in this sandbox (proxy artifact,
+  not expected in production) — **do one real test submission after deploy**
+  and confirm the row lands in the Supabase dashboard.
 - **No CMS yet.** Content lives in `src/content/site.ts`.
 - **Map is real now** — click-to-load Google Maps embed on Contact, no API key. See
   docs/06-seo-maps-favicon.md §4.

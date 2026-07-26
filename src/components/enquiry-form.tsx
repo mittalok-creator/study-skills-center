@@ -32,6 +32,15 @@ import { supabase, type LeadInsert } from "@/lib/supabase";
  *
  * Honeypot field (`_honey`) catches unsophisticated bots before either call
  * fires; nothing here stops a determined one.
+ *
+ * DO NOT chain `.select()` onto the `.insert()` call below. Postgres RLS
+ * treats `INSERT ... RETURNING` as also requiring a SELECT policy on the
+ * table, and this table deliberately has none for `anon` — that's what makes
+ * "leads can be written but never read back through the public API" true.
+ * `.select()` would silently reintroduce the exact RLS failure documented and
+ * fixed in docs/07-lead-form.md §2. If a future feature genuinely needs the
+ * inserted row back (e.g. a reference number), the fix is a SECURITY DEFINER
+ * Postgres function called via RPC, not a broader grant on this table.
  */
 
 type Status = "idle" | "submitting" | "success" | "error";
