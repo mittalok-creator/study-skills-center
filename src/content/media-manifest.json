@@ -1,0 +1,612 @@
+{
+ "gallery": [
+  {
+   "src": "/images/gallery/academics-01.jpg",
+   "category": "academics",
+   "w": 1080,
+   "h": 607,
+   "sheetRef": 26
+  },
+  {
+   "src": "/images/gallery/academics-02.jpg",
+   "category": "academics",
+   "w": 1200,
+   "h": 542,
+   "sheetRef": 32
+  },
+  {
+   "src": "/images/gallery/academics-03.jpg",
+   "category": "academics",
+   "w": 1152,
+   "h": 648,
+   "sheetRef": 48
+  },
+  {
+   "src": "/images/gallery/academics-04.jpg",
+   "category": "academics",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 54
+  },
+  {
+   "src": "/images/gallery/academics-05.jpg",
+   "category": "academics",
+   "w": 1200,
+   "h": 900,
+   "sheetRef": 61
+  },
+  {
+   "src": "/images/gallery/academics-06.jpg",
+   "category": "academics",
+   "w": 1152,
+   "h": 648,
+   "sheetRef": 62
+  },
+  {
+   "src": "/images/gallery/academics-07.jpg",
+   "category": "academics",
+   "w": 1080,
+   "h": 607,
+   "sheetRef": 67
+  },
+  {
+   "src": "/images/gallery/academics-08.jpg",
+   "category": "academics",
+   "w": 1200,
+   "h": 900,
+   "sheetRef": 73
+  },
+  {
+   "src": "/images/gallery/academics-09.jpg",
+   "category": "academics",
+   "w": 1152,
+   "h": 648,
+   "sheetRef": 79
+  },
+  {
+   "src": "/images/gallery/academics-10.jpg",
+   "category": "academics",
+   "w": 1200,
+   "h": 554,
+   "sheetRef": 83
+  },
+  {
+   "src": "/images/gallery/academics-11.jpg",
+   "category": "academics",
+   "w": 1152,
+   "h": 648,
+   "sheetRef": 91
+  },
+  {
+   "src": "/images/gallery/art-01.jpg",
+   "category": "art",
+   "w": 1156,
+   "h": 867,
+   "sheetRef": 3
+  },
+  {
+   "src": "/images/gallery/art-02.jpg",
+   "category": "art",
+   "w": 675,
+   "h": 1200,
+   "sheetRef": 14
+  },
+  {
+   "src": "/images/gallery/art-03.jpg",
+   "category": "art",
+   "w": 1200,
+   "h": 675,
+   "sheetRef": 18
+  },
+  {
+   "src": "/images/gallery/art-04.jpg",
+   "category": "art",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 19
+  },
+  {
+   "src": "/images/gallery/art-05.jpg",
+   "category": "art",
+   "w": 585,
+   "h": 1040,
+   "sheetRef": 22
+  },
+  {
+   "src": "/images/gallery/art-06.jpg",
+   "category": "art",
+   "w": 1200,
+   "h": 1200,
+   "sheetRef": 25
+  },
+  {
+   "src": "/images/gallery/art-07.jpg",
+   "category": "art",
+   "w": 1200,
+   "h": 900,
+   "sheetRef": 34
+  },
+  {
+   "src": "/images/gallery/art-08.jpg",
+   "category": "art",
+   "w": 886,
+   "h": 1200,
+   "sheetRef": 45
+  },
+  {
+   "src": "/images/gallery/art-09.jpg",
+   "category": "art",
+   "w": 675,
+   "h": 1200,
+   "sheetRef": 55
+  },
+  {
+   "src": "/images/gallery/art-10.jpg",
+   "category": "art",
+   "w": 648,
+   "h": 1152,
+   "sheetRef": 64
+  },
+  {
+   "src": "/images/gallery/art-11.jpg",
+   "category": "art",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 72
+  },
+  {
+   "src": "/images/gallery/art-12.jpg",
+   "category": "art",
+   "w": 844,
+   "h": 1200,
+   "sheetRef": 77
+  },
+  {
+   "src": "/images/gallery/art-13.jpg",
+   "category": "art",
+   "w": 867,
+   "h": 1156,
+   "sheetRef": 80
+  },
+  {
+   "src": "/images/gallery/art-14.jpg",
+   "category": "art",
+   "w": 585,
+   "h": 1040,
+   "sheetRef": 85
+  },
+  {
+   "src": "/images/gallery/art-15.jpg",
+   "category": "art",
+   "w": 585,
+   "h": 1040,
+   "sheetRef": 87
+  },
+  {
+   "src": "/images/gallery/dance-01.jpg",
+   "category": "dance",
+   "w": 1152,
+   "h": 648,
+   "sheetRef": 7
+  },
+  {
+   "src": "/images/gallery/dance-02.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 12
+  },
+  {
+   "src": "/images/gallery/dance-03.jpg",
+   "category": "dance",
+   "w": 800,
+   "h": 1200,
+   "sheetRef": 17
+  },
+  {
+   "src": "/images/gallery/dance-04.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 23
+  },
+  {
+   "src": "/images/gallery/dance-05.jpg",
+   "category": "dance",
+   "w": 1152,
+   "h": 648,
+   "sheetRef": 24
+  },
+  {
+   "src": "/images/gallery/dance-06.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 33
+  },
+  {
+   "src": "/images/gallery/dance-07.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 675,
+   "sheetRef": 35
+  },
+  {
+   "src": "/images/gallery/dance-08.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 37
+  },
+  {
+   "src": "/images/gallery/dance-09.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 40
+  },
+  {
+   "src": "/images/gallery/dance-10.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 52
+  },
+  {
+   "src": "/images/gallery/dance-11.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 56
+  },
+  {
+   "src": "/images/gallery/dance-12.jpg",
+   "category": "dance",
+   "w": 1071,
+   "h": 1077,
+   "sheetRef": 65
+  },
+  {
+   "src": "/images/gallery/dance-13.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 69
+  },
+  {
+   "src": "/images/gallery/dance-14.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 70
+  },
+  {
+   "src": "/images/gallery/dance-15.jpg",
+   "category": "dance",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 71
+  },
+  {
+   "src": "/images/gallery/music-01.jpg",
+   "category": "music",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 27
+  },
+  {
+   "src": "/images/gallery/music-02.jpg",
+   "category": "music",
+   "w": 1200,
+   "h": 900,
+   "sheetRef": 81
+  },
+  {
+   "src": "/images/gallery/music-03.jpg",
+   "category": "music",
+   "w": 1080,
+   "h": 607,
+   "sheetRef": 93
+  },
+  {
+   "src": "/images/gallery/music-04.jpg",
+   "category": "music",
+   "w": 1200,
+   "h": 900,
+   "sheetRef": 96
+  },
+  {
+   "src": "/images/gallery/taekwondo-01.jpg",
+   "category": "taekwondo",
+   "w": 675,
+   "h": 1200,
+   "sheetRef": 1
+  },
+  {
+   "src": "/images/gallery/taekwondo-02.jpg",
+   "category": "taekwondo",
+   "w": 1200,
+   "h": 675,
+   "sheetRef": 5
+  },
+  {
+   "src": "/images/gallery/taekwondo-03.jpg",
+   "category": "taekwondo",
+   "w": 1200,
+   "h": 675,
+   "sheetRef": 10
+  },
+  {
+   "src": "/images/gallery/taekwondo-04.jpg",
+   "category": "taekwondo",
+   "w": 607,
+   "h": 1080,
+   "sheetRef": 47
+  },
+  {
+   "src": "/images/gallery/taekwondo-05.jpg",
+   "category": "taekwondo",
+   "w": 1080,
+   "h": 607,
+   "sheetRef": 57
+  },
+  {
+   "src": "/images/gallery/taekwondo-06.jpg",
+   "category": "taekwondo",
+   "w": 1200,
+   "h": 675,
+   "sheetRef": 82
+  },
+  {
+   "src": "/images/gallery/chess-01.jpg",
+   "category": "chess",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 15
+  },
+  {
+   "src": "/images/gallery/chess-02.jpg",
+   "category": "chess",
+   "w": 1152,
+   "h": 648,
+   "sheetRef": 16
+  },
+  {
+   "src": "/images/gallery/chess-03.jpg",
+   "category": "chess",
+   "w": 1152,
+   "h": 648,
+   "sheetRef": 29
+  },
+  {
+   "src": "/images/gallery/chess-04.jpg",
+   "category": "chess",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 36
+  },
+  {
+   "src": "/images/gallery/chess-05.jpg",
+   "category": "chess",
+   "w": 1152,
+   "h": 528,
+   "sheetRef": 43
+  },
+  {
+   "src": "/images/gallery/chess-06.jpg",
+   "category": "chess",
+   "w": 1152,
+   "h": 648,
+   "sheetRef": 49
+  },
+  {
+   "src": "/images/gallery/chess-07.jpg",
+   "category": "chess",
+   "w": 1200,
+   "h": 676,
+   "sheetRef": 53
+  },
+  {
+   "src": "/images/gallery/chess-08.jpg",
+   "category": "chess",
+   "w": 905,
+   "h": 1200,
+   "sheetRef": 89
+  },
+  {
+   "src": "/images/gallery/events-01.jpg",
+   "category": "events",
+   "w": 1080,
+   "h": 608,
+   "sheetRef": 4
+  },
+  {
+   "src": "/images/gallery/events-02.jpg",
+   "category": "events",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 6
+  },
+  {
+   "src": "/images/gallery/events-03.jpg",
+   "category": "events",
+   "w": 835,
+   "h": 1200,
+   "sheetRef": 9
+  },
+  {
+   "src": "/images/gallery/events-04.jpg",
+   "category": "events",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 11
+  },
+  {
+   "src": "/images/gallery/events-05.jpg",
+   "category": "events",
+   "w": 757,
+   "h": 1200,
+   "sheetRef": 20
+  },
+  {
+   "src": "/images/gallery/events-06.jpg",
+   "category": "events",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 21
+  },
+  {
+   "src": "/images/gallery/events-07.jpg",
+   "category": "events",
+   "w": 1200,
+   "h": 675,
+   "sheetRef": 31
+  },
+  {
+   "src": "/images/gallery/events-08.jpg",
+   "category": "events",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 38
+  },
+  {
+   "src": "/images/gallery/events-09.jpg",
+   "category": "events",
+   "w": 607,
+   "h": 1080,
+   "sheetRef": 41
+  },
+  {
+   "src": "/images/gallery/events-10.jpg",
+   "category": "events",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 63
+  },
+  {
+   "src": "/images/gallery/events-11.jpg",
+   "category": "events",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 88
+  },
+  {
+   "src": "/images/gallery/events-12.jpg",
+   "category": "events",
+   "w": 1200,
+   "h": 800,
+   "sheetRef": 92
+  }
+ ],
+ "hero": {
+  "hero-home": {
+   "src": "/images/hero/hero-home.jpg",
+   "w": 1280,
+   "h": 721
+  },
+  "hero-academics": {
+   "src": "/images/hero/hero-academics.jpg",
+   "w": 1152,
+   "h": 648
+  },
+  "hero-mads": {
+   "src": "/images/hero/hero-mads.jpg",
+   "w": 1280,
+   "h": 721
+  },
+  "hero-grades": {
+   "src": "/images/hero/hero-grades.jpg",
+   "w": 1280,
+   "h": 721
+  },
+  "hero-gallery": {
+   "src": "/images/hero/hero-gallery.jpg",
+   "w": 1600,
+   "h": 901
+  },
+  "hero-about": {
+   "src": "/images/hero/hero-about.jpg",
+   "w": 1080,
+   "h": 607
+  }
+ },
+ "logo": {
+  "ssc-logo": {
+   "src": "/images/brand/ssc-logo.jpg",
+   "w": 600,
+   "h": 501
+  },
+  "mads-logo": {
+   "src": "/images/brand/mads-logo.jpg",
+   "w": 600,
+   "h": 600
+  }
+ },
+ "poster": {
+  "summer-camp": {
+   "src": "/images/posters/summer-camp.jpg",
+   "w": 667,
+   "h": 1000
+  },
+  "admission-open": {
+   "src": "/images/posters/admission-open.jpg",
+   "w": 1000,
+   "h": 666
+  },
+  "mads-classes": {
+   "src": "/images/posters/mads-classes.jpg",
+   "w": 1000,
+   "h": 656
+  },
+  "grades-career": {
+   "src": "/images/posters/grades-career.jpg",
+   "w": 497,
+   "h": 496
+  },
+  "activities-hobby": {
+   "src": "/images/posters/activities-hobby.jpg",
+   "w": 1000,
+   "h": 666
+  },
+  "taekwondo": {
+   "src": "/images/posters/taekwondo.jpg",
+   "w": 750,
+   "h": 1000
+  },
+  "drawing": {
+   "src": "/images/posters/drawing.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "tuitions": {
+   "src": "/images/posters/tuitions.jpg",
+   "w": 742,
+   "h": 1000
+  },
+  "art-exhibition": {
+   "src": "/images/posters/art-exhibition.jpg",
+   "w": 667,
+   "h": 1000
+  },
+  "annual-day": {
+   "src": "/images/posters/annual-day.jpg",
+   "w": 667,
+   "h": 1000
+  },
+  "results-12": {
+   "src": "/images/posters/results-12.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "results-10": {
+   "src": "/images/posters/results-10.jpg",
+   "w": 706,
+   "h": 726
+  },
+  "bharatnatyam": {
+   "src": "/images/posters/bharatnatyam.jpg",
+   "w": 1000,
+   "h": 1000
+  }
+ }
+}
