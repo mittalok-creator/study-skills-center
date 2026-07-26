@@ -27,7 +27,7 @@ export default function HomePage() {
       <section
         id="hero"
         data-hero
-        className="on-dark relative isolate flex min-h-[100svh] items-center overflow-hidden bg-navy-900 text-white"
+        className="on-dark relative isolate flex flex-col overflow-hidden bg-navy-900 text-white lg:min-h-[100svh] lg:justify-center"
       >
         {/* Animated background: drifting gradient + aurora blooms */}
         <div
@@ -50,20 +50,15 @@ export default function HomePage() {
         {/* Floating photographs of the centre */}
         <HeroCollage />
 
-        {/* Readability scrim. Vertical on mobile (text over cards), diagonal on
-            desktop (text left, cards right). */}
-        <div
-          className="absolute inset-0 z-[2] lg:hidden"
-          aria-hidden="true"
-          style={{ background: "linear-gradient(185deg,rgba(10,22,51,.72) 0%,rgba(10,22,51,.86) 30%,rgba(10,22,51,.7) 66%,rgba(10,22,51,.9) 100%)" }}
-        />
+        {/* Desktop only: diagonal scrim so the copy in the left third always wins
+            over the collage. Mobile needs none — the copy sits below the band. */}
         <div
           className="absolute inset-0 z-[2] hidden lg:block"
           aria-hidden="true"
           style={{ background: "linear-gradient(100deg,rgba(10,22,51,.96) 0%,rgba(10,22,51,.88) 32%,rgba(10,22,51,.3) 58%,transparent 78%)" }}
         />
 
-        <Container className="relative z-10 py-16">
+        <Container className="relative z-10 flex flex-1 flex-col justify-center pb-28 pt-6 lg:py-16">
           <div className="max-w-2xl">
             <Eyebrow tone="gold">Malviya Nagar, New Delhi</Eyebrow>
 
@@ -76,8 +71,8 @@ export default function HomePage() {
             />
 
             <p className="mt-5 max-w-xl text-lg text-white/80" data-hero-item>
-              School tuition, competitive-exam coaching, and a studio for music, dance and art —
-              all under one roof, in small batches, taught by people who notice your child.
+              School tuition, competitive exams, and a studio for music, dance and art — all
+              under one roof, in small batches.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3" data-hero-item>

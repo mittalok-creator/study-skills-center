@@ -50,6 +50,10 @@ npx serve out        # preview the production build
 | `/faq` · `/admissions` · `/fees` · `/contact` | Built, with open questions marked |
 | `404` | Designed |
 
+**Mobile navigation:** a persistent bottom bar — Home · Call · WhatsApp · Free demo — is
+fixed on every page, so there is always a one-tap route back to the home page from anywhere
+on the site.
+
 Anything awaiting input from SSC is marked inline with a gold **"Needs input from SSC"**
 note, so the review can be done by reading the site rather than a spreadsheet.
 
@@ -75,7 +79,11 @@ Unknowns are marked `TODO` rather than filled with plausible fiction.
 ## Motion
 
 **Hero — floating photo collage.** Real photographs of the centre drift on a CSS animation
-and parallax to the pointer on desktop. For a school, evidence that classes actually look
+and parallax to the pointer on desktop. The layout differs by breakpoint on purpose: on
+mobile the collage is a band at the top and the headline sits *below* it on solid navy,
+because white display type over bright classroom photos was unreadable at any scrim
+strength — the first two lines of the headline disappeared entirely. On desktop the collage
+is full-bleed behind copy that occupies a deliberately clear left third. For a school, evidence that classes actually look
 like this beats abstract shapes; an earlier WebGL version of procedural books, globes and
 trophies was cut for looking cheap, which also removed ~230 kB of Three.js from the bundle.
 

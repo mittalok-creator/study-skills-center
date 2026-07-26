@@ -121,39 +121,94 @@ export function Header() {
   );
 }
 
-export function MobileCTABar() {
+function Icon({ path, className = "" }: { path: string; className?: string }) {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-grey-200 bg-white/95 p-2 backdrop-blur lg:hidden">
-      <div className="flex gap-2">
-        <a
-          href={`tel:${site.primaryPhone}`}
-          className="flex min-h-[44px] flex-1 items-center justify-center rounded-full border border-grey-200 text-sm font-semibold text-navy-900"
-        >
-          Call
-        </a>
-        <a
-          href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
-            "Hi, I'd like to know more about classes at Study Skills Center."
-          )}`}
-          className="flex min-h-[44px] flex-1 items-center justify-center rounded-full border border-grey-200 text-sm font-semibold text-navy-900"
-          rel="noopener noreferrer"
-        >
-          WhatsApp
-        </a>
-        <Link
-          href="/admissions"
-          className="flex min-h-[44px] flex-[1.4] items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white"
-        >
-          Free demo
-        </Link>
-      </div>
-    </div>
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d={path} />
+    </svg>
+  );
+}
+
+const ICONS = {
+  home: "M3 10.2 12 3l9 7.2V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z",
+  phone: "M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z",
+  chat: "M21 11.5a8.4 8.4 0 0 1-9 8.5 9.5 9.5 0 0 1-2.8-.4L3 21l1.4-4.2A8.4 8.4 0 0 1 3 11.5a8.4 8.4 0 0 1 9-8.5 8.4 8.4 0 0 1 9 8.5z",
+  calendar: "M8 3v3m8-3v3M4 9h16M5 6h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z",
+};
+
+/**
+ * Persistent bottom bar on mobile.
+ *
+ * Home sits first so there is always a one-tap route back to the top of the
+ * site from any page — the sticky header logo does the same job, but a
+ * thumb-reachable control at the bottom is the one people actually find.
+ */
+export function MobileCTABar() {
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+
+  const itemBase =
+    "flex min-h-[52px] flex-col items-center justify-center gap-0.5 rounded-xl text-[10px] font-semibold leading-none";
+
+  return (
+    <nav
+      aria-label="Quick actions"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-grey-200 bg-white/96 px-2 pb-[env(safe-area-inset-bottom)] pt-1.5 backdrop-blur lg:hidden"
+    >
+      <ul className="flex items-stretch gap-1.5">
+        <li className="flex-1">
+          <Link
+            href="/"
+            aria-current={onHome ? "page" : undefined}
+            className={`${itemBase} ${onHome ? "bg-blue-050 text-blue-600" : "text-grey-600"}`}
+          >
+            <Icon path={ICONS.home} />
+            Home
+          </Link>
+        </li>
+        <li className="flex-1">
+          <a href={`tel:${site.primaryPhone}`} className={`${itemBase} text-grey-600`}>
+            <Icon path={ICONS.phone} />
+            Call
+          </a>
+        </li>
+        <li className="flex-1">
+          <a
+            href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
+              "Hi, I'd like to know more about classes at Study Skills Center."
+            )}`}
+            rel="noopener noreferrer"
+            className={`${itemBase} text-grey-600`}
+          >
+            <Icon path={ICONS.chat} />
+            WhatsApp
+          </a>
+        </li>
+        <li className="flex-[1.5]">
+          <Link href="/admissions" className={`${itemBase} bg-blue-600 px-3 text-white`}>
+            <Icon path={ICONS.calendar} />
+            Free demo
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
 export function Footer() {
   return (
-    <footer className="on-dark bg-navy-900 pb-24 text-white lg:pb-0">
+    <footer className="on-dark bg-navy-900 pb-28 text-white lg:pb-0">
       <div className="container-x grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="display text-2xl">Study Skills Center</p>
