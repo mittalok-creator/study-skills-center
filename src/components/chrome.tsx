@@ -22,7 +22,7 @@ export function DraftBanner() {
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const primary = navigation.slice(0, 8);
+  const primary = navigation.slice(0, 7);
 
   return (
     <>
@@ -40,8 +40,8 @@ export function Header() {
               className="h-11 w-11 rounded-full object-cover"
             />
             <span className="leading-tight">
-              <span className="display block text-lg text-navy-900">Study Skills Center</span>
-              <span className="block text-[10px] uppercase tracking-[0.16em] text-grey-500">
+              <span className="display block whitespace-nowrap text-lg leading-none text-navy-900">Study Skills Center</span>
+              <span className="mt-0.5 block whitespace-nowrap text-[9px] uppercase tracking-[0.16em] text-grey-500">
                 {site.tagline}
               </span>
             </span>

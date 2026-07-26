@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import { Header, Footer, MobileCTABar } from "@/components/chrome";
+import { MotionProvider } from "@/components/motion/motion-provider";
+import { CustomCursor, PageTransition } from "@/components/motion/pieces";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -29,9 +32,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <Header />
-        <main id="main">{children}</main>
+        <PageTransition>
+          <main id="main">{children}</main>
+        </PageTransition>
         <Footer />
         <MobileCTABar />
+        <MotionProvider />
+        <CustomCursor />
       </body>
     </html>
   );

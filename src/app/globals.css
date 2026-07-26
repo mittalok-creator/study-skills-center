@@ -98,12 +98,11 @@ p { text-wrap: pretty; }
   top: 0.5rem;
 }
 
-/* `.reveal` is a hook for the scroll-choreography layer, which lands in R3.
-   It deliberately has NO hidden state right now: an earlier scroll-timeline
-   version left content at opacity 0 whenever the timeline never advanced
-   (below the fold, printing, deep links), which is a far worse failure than
-   having no animation. Content is always visible until the motion work is
-   done properly and tested. */
+/* Motion.
+   Nothing below hides content. Reveal "from" states are set by GSAP at runtime
+   (see motion-provider.tsx) so that no-JS, print and reduced-motion always show
+   the finished page. An earlier CSS scroll-timeline version pinned content at
+   opacity 0 whenever the timeline never advanced — never do that again. */
 @media (prefers-reduced-motion: no-preference) {
   .float-slow {
     animation: floaty 7s var(--ease-out-quart) infinite alternate;
@@ -112,7 +111,68 @@ p { text-wrap: pretty; }
     from { transform: translateY(0) }
     to { transform: translateY(-14px) }
   }
+
+  .scroll-dot {
+    animation: scroll-dot 1.9s var(--ease-out-quart) infinite;
+  }
+  @keyframes scroll-dot {
+    0%   { transform: translateY(0);    opacity: 0 }
+    22%  { opacity: 1 }
+    72%  { transform: translateY(16px); opacity: 1 }
+    100% { transform: translateY(20px); opacity: 0 }
+  }
+
+  /* Slow drift across a multi-stop gradient — the "animated background". */
+  .gradient-drift {
+    background-size: 260% 260%;
+    animation: gradient-drift 22s ease-in-out infinite;
+  }
+  @keyframes gradient-drift {
+    0%, 100% { background-position: 0% 50% }
+    50%      { background-position: 100% 50% }
+  }
+
+  .aurora {
+    animation: aurora 17s ease-in-out infinite alternate;
+  }
+  @keyframes aurora {
+    from { transform: translate3d(-4%, -2%, 0) scale(1);    opacity: .55 }
+    to   { transform: translate3d(6%, 4%, 0)   scale(1.18); opacity: .85 }
+  }
 }
+
+/* Glass surface + hover lift. Static without motion preference. */
+.glass {
+  background: rgb(255 255 255 / 0.07);
+  border: 1px solid rgb(255 255 255 / 0.14);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  transition: background 0.35s var(--ease-out-quart), border-color 0.35s var(--ease-out-quart),
+    transform 0.35s var(--ease-out-quart);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .glass:hover {
+    background: rgb(255 255 255 / 0.12);
+    border-color: rgb(201 162 39 / 0.5);
+    transform: translateY(-5px);
+  }
+}
+/* Solid fallback where backdrop-filter is unsupported. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: rgb(16 30 70 / 0.86); }
+}
+
+.lift {
+  transition: transform 0.35s var(--ease-out-quart), box-shadow 0.35s var(--ease-out-quart);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-3); }
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

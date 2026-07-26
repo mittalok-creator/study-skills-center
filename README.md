@@ -67,19 +67,48 @@ Unknowns are marked `TODO` rather than filled with plausible fiction.
   enough for full-width heroes. Mitigated by keeping large images behind dark overlays.
 - **Forms don't submit.** Layout and validation structure only.
 - **No CMS yet.** Content lives in `src/content/site.ts`.
-- **Scroll animation deferred.** An earlier scroll-timeline reveal left content invisible
-  below the fold, when printing, and on deep links — it was removed rather than shipped
-  broken. Motion lands in R3, tested.
 - **Map is a placeholder** with a click-out to Google Maps.
 - **Consent not yet verified** for any photograph of a student.
 
 ---
 
+## Motion & 3D
+
+**Interactive 3D hero** — React Three Fiber. A floating cluster of procedurally built
+objects: a stack of books, mortarboard with tassel, wireframe glass globe, trophy, quaver,
+piano keys, and three abstract glass forms, over a drifting particle field. Interactive
+lighting tracks the pointer, the whole group parallaxes to the mouse, and fog stands in for
+depth of field. No model or HDR files — everything is generated in-scene, so it works
+offline and under a strict CSP.
+
+**Capability-gated.** The 3D chunk only loads on desktop, with a fine pointer, ≥4 cores,
+≥4 GB memory, WebGL2, no save-data and no reduced-motion preference. Everyone else gets the
+poster image, which is the LCP element on those devices. Rendering stops entirely once the
+hero scrolls out of view.
+
+**GSAP + Lenis motion layer** (`src/components/motion/`):
+hero intro timeline · split-line headline reveals · section and staggered reveals ·
+animated counters · scrub parallax · pinned horizontal scroll for the Student Journey ·
+magnetic buttons · custom cursor · page-transition wipe · glass hover · drifting gradients
+and aurora blooms · animated scroll indicator · smooth scrolling.
+
+**The rule everything follows:** no CSS hides content. Elements are visible in the
+stylesheet; GSAP sets the "from" state at runtime only when it will also animate it back.
+Hero content plays on a load timeline, never a scroll trigger — anything in the first
+viewport that waits for a ScrollTrigger can sit at its "from" state forever if it falls
+below the trigger point. An automated audit walks all 16 routes, scrolls each to the
+bottom, and fails if any animated element is left below 0.9 opacity.
+
+`prefers-reduced-motion: reduce` disables the entire layer — no 3D, no Lenis, no reveals —
+and is verified in the same audit.
+
 ## Stack
 
 Next.js 15 (App Router, static export) · React 19 · TypeScript strict · Tailwind CSS v4 ·
-Bebas Neue + Inter. No client JS beyond the mobile menu and gallery filter — **~106 kB
-First Load JS**, against a 180 kB budget.
+GSAP + ScrollTrigger · Lenis · Three.js + React Three Fiber + Drei · Bebas Neue + Inter.
+
+**Home: ~137 kB First Load JS** against a 180 kB budget. The ~230 kB gzipped 3D bundle is a
+separate deferred chunk that most visitors never download.
 
 ```
 src/

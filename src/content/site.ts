@@ -323,3 +323,39 @@ export const navigation = [
   { href: "/fees", label: "Fees" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+/** Numeric stats for the animated counters on the home page. */
+export const countStats = [
+  { value: 12, suffix: "", label: "Classes taught (I–XII)" },
+  { value: 11, suffix: "", label: "Creative programmes" },
+  { value: 3, suffix: "", label: "Divisions under one roof" },
+  { value: 6, suffix: "th", label: "Annual Day held" },
+] as const;
+
+/** The student journey — horizontal scroll section on the home page. */
+export const journey = [
+  {
+    title: "You call, or send a message",
+    body: "Tell us the class, the subject or the programme, and what you are hoping changes. We will tell you honestly whether we are the right fit.",
+  },
+  {
+    title: "The student sits in on a demo",
+    body: "A real class with the batch they would actually join. Free, and with no obligation on either side.",
+  },
+  {
+    title: "We place them in the right batch",
+    body: "Level and timing both matter. Online or offline, whichever suits the week — batches are kept small on purpose.",
+  },
+  {
+    title: "The work begins",
+    body: "Printed study material, regular practice, and a teacher close enough to notice when something is not landing.",
+  },
+  {
+    title: "Progress gets measured",
+    body: "Tests, corrections and honest feedback to parents — not just at the end of the year, but as it happens.",
+  },
+  {
+    title: "Results, and a stage",
+    body: "Board scores worth publishing, and for MADS students, an Annual Day audience to perform in front of.",
+  },
+] as const;
